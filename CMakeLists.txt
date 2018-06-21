@@ -17,12 +17,8 @@ execute_process(COMMAND "python -c 'from distutils.sysconfig import get_python_i
 ExternalProject_Add(${PROJECT_NAME}-ext
   PREFIX ext
   GIT_REPOSITORY http://github.com/pytorch/pytorch.git
-  GIT_TAG 664fe34e0a28318947edaa562247be7b583c1ee7
+  GIT_TAG d79711d68997e2c83fb6488690f03c94a229f839
   INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}
-
-  PATCH_COMMAND git checkout .
-        COMMAND git clean -f
-        COMMAND git apply ${CMAKE_CURRENT_SOURCE_DIR}/caffe2.patch
 
   CMAKE_ARGS    -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
                 -DPYTHON_INCLUDE_DIRS=${PYTHON_INCLUDE_DIR}
